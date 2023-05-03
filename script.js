@@ -9,7 +9,20 @@ const btn = document.querySelector("[data-form-btn]");
 const creatTask = (evento) => {
     evento.preventDefault();
     const input = document.querySelector("[data-form-input]");
-    console.log(input.value);
+    const value = input.value;
+    const task = document.querySelector("[data-task]");
+
+    // de esta manera podemos traer texto html y con ${} se pueden emplear variables no olvide las backticks `` 
+    const content = `<div>
+    <i class="far fa-check-square icon"></i>
+    <span class="task">${value}</span>
+  </div><i class="fas fa-trash-alt trashIcon icon"></i>`
+    
+    task.innerHTML = content;
+  
+    // con esto logramos que una vez daDO click se limpia el input
+    input.value = ""; 
+    console.log(value);
 };
 
 // btn.addEventListener("click", function(evento) {
