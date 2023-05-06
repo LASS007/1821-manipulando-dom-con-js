@@ -1,4 +1,8 @@
 // aparentemente para seleccionar un data- se hace dentro de "[]"", para id, class o tag se hace "",
+
+// funcion discreta de esta manera encierra todo el codigo en una funcion indirecta que a la ves se ejecuta inmediatamente ( () => {} ) ();
+( () => {
+  
 const btn = document.querySelector("[data-form-btn]");
 
 // console.log(btn);
@@ -21,6 +25,7 @@ const createTask = (evento) => {
     const titleTask = document.createElement('span');
     titleTask.classList.add('task');
     titleTask.innerText = value;
+    // Recuerde que cuando una funcion se le agrega () se manda a llamar inmediatamente
     taskContent.appendChild(checkComplete());
     taskContent.appendChild(titleTask);
 
@@ -81,3 +86,5 @@ btn.addEventListener("click", createTask);
 // ** replaceChild(elemento1, elemento2): Sustituye el nodo del elemento 1  por el nodo del elemento 2
 
 // ** removeChild(elemento): Remueve un nodo del árbol
+
+})();
