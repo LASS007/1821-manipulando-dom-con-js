@@ -1,9 +1,9 @@
-// aparentemente para seleccionar un data- se hace dentro de "[]"", para id, class o tag se hace "",
+// Utilizando la metodologia de dividir en bloques el codigo de sus funciones importamos los bloques sus funciones especificas a la vez debemos especificar en el html que este archivo es de modulos
+import checkComplete from "./components/checkComplete.js";
+import deleteIcon from "./components/deleteIcon.js";
 
-// funcion discreta de esta manera encierra todo el codigo en una funcion indirecta que a la ves se ejecuta inmediatamente ( () => {} ) (); a esto se le llama Immediately Invoked Function Expression IIFE funcion que como tal se declaran se ejecutan.
-( () => {
-  
 const btn = document.querySelector("[data-form-btn]");
+// aparentemente para seleccionar un data- se hace dentro de "[]"", para id, class o tag se hace "" y const sin nada,
 
 // console.log(btn);
 
@@ -51,48 +51,13 @@ const createTask = (evento) => {
     console.log(value);
 };
 
-// Esto es como recrear la seccion i del codigo html en js
-const checkComplete = () => {
-  const i = document.createElement("i");
-  i.classList.add("far", "fa-check-square", "icon");
-  i.addEventListener("click", completeTask);
-  return i;
-  
-}
 
-const completeTask = (event) => {
-  
-  // Con esto la funcion en event arroja un objeto con las propiedades y en la seccion path muestra la estructura del elemneto que estamos tocando
-  console.log(event);
-
-  // por eso target es el elemento a cual estamos tocando
-  const element = event.target;
-  // existe add, remove y toggle donde toggle es si existe la quito si no existe la pongo
-
-  // En estas clases se indaga en la pagina de iconos que se agregao la ref en el html y vemos que rellenar el check es con la etiqueta fas mientras  que far es sin relleno osea por defecto
-  element.classList.toggle('fas');
-  // completeIcon es la clase de color azul completado
-  element.classList.toggle('completeIcon');
-  element.classList.toggle('far');
-}
 // btn.addEventListener("click", function(evento) {
 
 // de la constante btn que agarra los datos de button en html tiene el evento de escuchar cuando se hace un click activa createTask
 btn.addEventListener("click", createTask);
 
-const deleteIcon = () => {
-  const i = document.createElement("i");
-  i.classList.add("fas", "fa-trash-alt", "trashIcon", "icon");
-  i.addEventListener("click", deleteTask);
-  return i;
-}
 
-// de esta manera de accesa al target padre y con la funcion remove se eliman todo el padre que contiene la tarjeta card
-const deleteTask = (event) => {
-  console.log(event.target.parentElement);
-  const parent = event.target.parentElement;
-  parent.remove();
-} 
 // en la configuracion de modo desarrollador del navegador, preserver log, sirve para conservar los .log generados aunque se recargue la pagina por eso del live server ejemplo.
 
 // Todos los elementos en nuestro árbol de DOM son nodos y todos los nodos pueden ser accedidos vía JavaScript. Los nodos pueden ser eliminados, creados o modificados. Durante el curso utilizamos el método appendChild que siempre es implementado al final del nodo, para colocar un nodo hijo dentro del nodo padre.
@@ -103,5 +68,3 @@ const deleteTask = (event) => {
 // ** replaceChild(elemento1, elemento2): Sustituye el nodo del elemento 1  por el nodo del elemento 2
 
 // ** removeChild(elemento): Remueve un nodo del árbol
-
-})();
